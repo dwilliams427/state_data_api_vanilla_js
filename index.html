@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css"
+    />
+
+    <style>
+      body {
+        background-color: #ffcc00;
+      }
+
+      h1 {
+        font-family: sans-serif;
+        text-align: center;
+        padding-top: 140px;
+        font-size: 60px;
+        margin: -15px;
+      }
+
+      input {
+        font-family: sans-serif;
+        color: #907400;
+        text-align: center;
+        align-content: center;
+        justify-content: center;
+      }
+      #container {
+        align-content: center;
+        justify-content: center;
+        position: relative;
+        width: 500px;
+        height: 300px;
+      }
+      table {
+        border-collapse: collapse;
+        border: 2px black solid;
+        font: 12px sans-serif;
+      }
+      td {
+        border: 1px black solid;
+        padding: 5px;
+      }
+    </style>
+    <title>State Data API</title>
+  </head>
+  <body>
+    <h1>STATE DATA API</h1>
+    <h5 id="stateText">State data goes here...</h5>
+    <div>
+      <button>Get All State Data</button>
+      <div id="table">
+        <table></table>
+      </div>
+    </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script> -->
+    <!-- <script src="http://datamaps.github.io/scripts/datamaps.usa.min.js?v=1"></script> -->
+    <!-- BOOTSTRAP -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="csv_parser.js"></script> -->
+    <script type="module">
+      import { parse_csv } from "./csv_parser.js";
+      document.getElementById("#stateText").innerHTML = parse_csv();
+    </script>
+
+    <!-- UPLOAD CSV AND SHOW TABLE VERSION -->
+    <!-- FIRST ATTEMPT WITH DATAMAP API -->
+    <!-- <script>
+      var map = new Datamap({
+        element: document.getElementById("container"),
+        scope: "usa",
+        fills: {
+          defaultFill: "rgba(23,48,210,0.9)", // Any hex, color name or rgb/rgba value
+        },
+        geographyConfig: {
+          highlightOnHover: true,
+          popupOnHover: true,
+        },
+        data: {
+          USA: {
+            fillKey: "MEDIUM",
+            numberOfThings: 10381,
+          },
+        },
+      });
+      <div id="container"></div>;
+    </script> -->
+  </body>
+</html>
